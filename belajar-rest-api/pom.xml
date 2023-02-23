@@ -50,6 +50,9 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+				<configuration>
+					<jvmArguments>-Dserver.port=9000</jvmArguments>
+				</configuration>
 			</plugin>
 		</plugins>
 	</build>
