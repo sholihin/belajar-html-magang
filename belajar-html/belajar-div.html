@@ -23,12 +23,12 @@
             <div class="sidebar">
                 <h3>Menu</h3>
                 <ul>
-                    <li><a href="#">Siswa</a></li>
-                    <li><a href="#">Pelajaran</a></li>
-                    <li><a href="#">Absensi</a></li>
+                    <li><a href="#" onclick="loadPage('menu/siswa.html')">Siswa</a></li>
+                    <li><a href="#" onclick="loadPage('menu/pelajar.html')">Pelajaran</a></li>
+                    <li><a href="#" onclick="loadPage('menu/jadwal.html')">Jadwal</a></li>
                 </ul>
             </div>
-            <div class="content">
+            <div class="content" id="main-content">
                 <h3>Isi Koten</h3>
             </div>
         </main>
@@ -36,5 +36,6 @@
         <footer>
             <div class="text-center bg-dark padding-x-15 padding-y-15">Copyright : iconpln.co.id</div>
         </footer>
+    <script src="js/script.js"></script>
     </body>
 </html>
