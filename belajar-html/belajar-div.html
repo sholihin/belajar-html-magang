@@ -6,13 +6,35 @@
         <title>Belajar HTML Layouts</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="">
+        <link rel="stylesheet" href="css/style.css">
     </head>
     <body>
-        <div style="background-color: brown; width: 100%; padding-top: 10px; padding-bottom: 10px; padding-left: 10px; padding-right: 10px;">Header</div>
-        <!-- padding: top, right, bottom, left -->
-        <div style="background-color: blue; width: 25%; float:left; padding:15px 10px 15px 10px">Sidebar</div>
-        <div style="background-color: coral; width: 70%; float: right; padding:15px 10px">Body</div>
-        <div style="background-color: green; width: 100%; clear:both; padding:10px">Footer</div>
+        <header>
+            <nav class="bg-dark padding-x-15 padding-y-15">
+                <ul>
+                    <li><a href="#">Beranda</a></li>
+                    <li><a href="#">Tengan</a></li>
+                    <li><a href="#">Kontak</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main style="height:calc(100vh - 100px)">
+            <div class="sidebar">
+                <h3>Menu</h3>
+                <ul>
+                    <li><a href="#">Siswa</a></li>
+                    <li><a href="#">Pelajaran</a></li>
+                    <li><a href="#">Absensi</a></li>
+                </ul>
+            </div>
+            <div class="content">
+                <h3>Isi Koten</h3>
+            </div>
+        </main>
+
+        <footer>
+            <div class="text-center bg-dark padding-x-15 padding-y-15">Copyright : iconpln.co.id</div>
+        </footer>
     </body>
 </html>
