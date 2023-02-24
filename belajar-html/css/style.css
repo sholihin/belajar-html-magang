@@ -54,3 +54,25 @@ main {
 .text-center {
     text-align: center;
 }
+
+.text-control {
+    padding: 5px 10px;
+    border-radius: 10px;
+}
+
+.my-10 {
+    margin: 3px 0px;
+}
+
+.btn-dark {
+    padding: 5px 10px;
+    background: #333;
+    color: white;
+    border-radius: 10px;
+}
+
+.form-column {
+    display: flex;
+    flex-direction: column;
+    width: 350px;
+}
