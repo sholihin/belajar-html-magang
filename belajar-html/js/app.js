@@ -1,11 +1,9 @@
-const apiUrl = 'http://localhost:8080/api/data';
+var apiUrl = 'http://127.0.0.1:9000/user';
 
 function createData() {
-    const id = document.getElementById('id').value;
     const name = document.getElementById('name').value;
     const email = document.getElementById('email').value;
     const data = {
-        id: id,
         name: name,
         email: email
     };
