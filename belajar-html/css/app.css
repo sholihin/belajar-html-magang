@@ -68,3 +68,45 @@ p {
 	background-color: #333;
 	color: #f1f1f1;
 }
+
+
+.text-control {
+    padding: 5px 10px;
+    border-radius: 10px;
+}
+
+.my-10 {
+    margin: 3px 0px;
+}
+
+.mb-15 {
+	margin-bottom: 15px;
+}
+
+.btn-dark {
+    padding: 5px 10px;
+    background: #333;
+    color: white;
+    border-radius: 10px;
+}
+
+.form-column {
+    display: flex;
+    flex-direction: column;
+    width: 350px;
+}
+
+.tbl-responsive {
+	border: 1px solid #333;
+	width: 100%;
+	border-radius: 5px;
+}
+
+.tbl-responsive td {
+	padding:5px 5px;
+}
+
+table, th, td {
+	border: 1px solid;
+	border-collapse: collapse;
+}
