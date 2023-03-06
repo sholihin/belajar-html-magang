@@ -23,6 +23,7 @@ function createData() {
         console.error(error);
         alert(error.message);
     });
+    readData();
 }
 
 function readData() {
@@ -37,12 +38,16 @@ function readData() {
                 const id = document.createElement('td');
                 const name = document.createElement('td');
                 const email = document.createElement('td');
+                const action = document.createElement('td');
                 id.innerText = item.id;
                 name.innerText = item.name;
                 email.innerText = item.email;
+            
+                action.innerHTML = '<button>Delete</button><button>Edit</button>';
                 row.appendChild(id);
                 row.appendChild(name);
                 row.appendChild(email);
+                row.appendChild(action);
                 tbody.appendChild(row);
             });
         })
@@ -132,6 +137,7 @@ function clearForm() {
 
 function loadPage(pageUrl) {
 	// Buat objek XMLHttpRequest
+    console.log('pageLoad : '+pageUrl)
 	var xhttp = new XMLHttpRequest();
 	
 	// Ketika readyState berubah
@@ -146,4 +152,6 @@ function loadPage(pageUrl) {
 	// Buat request GET ke file HTML yang dipilih
 	xhttp.open("GET", pageUrl, true);
 	xhttp.send();
+
+    readData();
 }
