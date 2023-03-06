@@ -1,6 +1,26 @@
 <h3>Form Siswa</h3>
+
+<div class="mb-15">
 <form action="#" method="POST" class="form-column">
+    <input type="hidden" id="id">
     <input type="text" id="name" class="text-control my-10" placeholder="Isi dengan nama">
     <input type="email" id="email" class="text-control my-10" placeholder="Isi dengan email">
     <button type="button" class="btn-dark" onclick="createData()">Simpan</button>
 </form>
+</div>
+<input type="text" id="search" class="text-control my-10" style="float:right;" placeholder="Isi dengan keyword">
+<table class="tbl-responsive">
+    <thead>
+        <tr>
+            <td>ID</td>
+            <td>Nama</td>
+            <td>Email</td>
+            <td>Action</td>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td colspan="4" class="text-center">Data tidak tersedia..</td>
+        </tr>
+    </tbody>
+</table>

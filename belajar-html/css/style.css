@@ -76,3 +76,16 @@ main {
     flex-direction: column;
     width: 350px;
 }
+
+.mb-15{
+    margin-bottom: 15px;
+}
+
+table {
+    width: 100%;
+}
+
+table, th, td {
+    border: 1px solid #333; 
+    border-collapse: collapse;
+}
