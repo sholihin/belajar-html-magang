@@ -37,7 +37,7 @@ function readData() {
                 name.innerText = item.name;
                 email.innerText = item.email;
             
-                action.innerHTML = '<button onclick="deleteData('+item.id+')">Delete</button><button>Edit</button>';
+                action.innerHTML = '<button onclick="deleteData('+item.id+')">Delete</button><button onclick="editData('+item.id+')">Edit</button>';
                 row.appendChild(id);
                 row.appendChild(name);
                 row.appendChild(email);
@@ -117,7 +117,7 @@ function searchData() {
                     name.innerText = item.name;
                     email.innerText = item.email;
                 
-                    action.innerHTML = '<button onclick="deleteData('+item.id+')">Delete</button><button>Edit</button>';
+                    action.innerHTML = '<button onclick="deleteData('+item.id+')">Delete</button><button onclick="('+data.id+')">Edit</button>';
                     row.appendChild(id);
                     row.appendChild(name);
                     row.appendChild(email);
@@ -130,5 +130,56 @@ function searchData() {
                 alert(error.message);
             });
     }
+    
+}
+
+function editData(id){
+    var keyword =  document.getElementById('textSearch').value;
+
+    if(id === ''){
+        alert('Id tidak tersedia!');
+    }else{
+        fetch(`${urlAPI}/${id}`, {
+            method: 'GET'
+        }).then(response => response.json())
+            .then(data => {
+                document.getElementById('id').value = data.id;
+                document.getElementById('name').value = data.name;
+                document.getElementById('email').value = data.email;
+                document.getElementById('btnSave').setAttribute('onclick', 'updateData()');
+                document.getElementById('btnSave').innerHTML = "Update";
+                
+            })
+            .catch(error => {
+                console.error(error);
+                alert(error.message);
+            });
+    }
+}
+
+function updateData() {
+    const id = document.getElementById('id').value;
+    const name = document.getElementById('name').value;
+    const email = document.getElementById('email').value;
+    const data = {
+        name: name,
+        email: email
+    };
+    fetch(`${urlAPI}/${id}`, {
+        method: 'PUT',
+        body: JSON.stringify(data),
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    }).then(response => {
+        if (!response.ok) {
+            throw new Error('Failed to create data');
+        }
+        alert('Data created successfully');
+		readData();
+    }).catch(error => {
+        console.error(error);
+        alert(error.message);
+    });
     
 }
