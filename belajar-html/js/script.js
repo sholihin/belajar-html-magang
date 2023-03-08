@@ -117,7 +117,7 @@ function searchData() {
                     name.innerText = item.name;
                     email.innerText = item.email;
                 
-                    action.innerHTML = '<button onclick="deleteData('+item.id+')">Delete</button><button onclick="('+data.id+')">Edit</button>';
+                    action.innerHTML = '<button onclick="deleteData('+item.id+')">Delete</button><button onclick="editData('+item.id+')">Edit</button>';
                     row.appendChild(id);
                     row.appendChild(name);
                     row.appendChild(email);
@@ -134,7 +134,6 @@ function searchData() {
 }
 
 function editData(id){
-    var keyword =  document.getElementById('textSearch').value;
 
     if(id === ''){
         alert('Id tidak tersedia!');
@@ -173,13 +172,22 @@ function updateData() {
         }
     }).then(response => {
         if (!response.ok) {
-            throw new Error('Failed to create data');
+            throw new Error('Failed to update data');
         }
-        alert('Data created successfully');
+        alert('Data update successfully');
 		readData();
+        clearForm();
     }).catch(error => {
         console.error(error);
         alert(error.message);
     });
     
+}
+
+function clearForm(){
+    document.getElementById('id').value = '';
+    document.getElementById('name').value = '';
+    document.getElementById('email').value = '';
+    document.getElementById('btnSave').setAttribute('onclick', 'createData()');
+    document.getElementById('btnSave').innerHTML = "Save";
 }
