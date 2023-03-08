@@ -91,3 +91,44 @@ function createData() {
     });
     
 }
+
+function searchData() {
+    var keyword =  document.getElementById('textSearch').value;
+
+    if(keyword === ''){
+        readData();
+    }else{
+        fetch(`${urlAPI}/${keyword}`, {
+            method: 'GET'
+        }).then(response => response.json())
+            .then(data => {
+                console.log(data);
+                const table = document.querySelector('table');
+                const tbody = table.querySelector('tbody');
+                tbody.innerHTML = '';
+                const item = data;
+                // data.forEach(item => {
+                    const row = document.createElement('tr');
+                    const id = document.createElement('td');
+                    const name = document.createElement('td');
+                    const email = document.createElement('td');
+                    const action = document.createElement('td');
+                    id.innerText = item.id;
+                    name.innerText = item.name;
+                    email.innerText = item.email;
+                
+                    action.innerHTML = '<button onclick="deleteData('+item.id+')">Delete</button><button>Edit</button>';
+                    row.appendChild(id);
+                    row.appendChild(name);
+                    row.appendChild(email);
+                    row.appendChild(action);
+                    tbody.appendChild(row);
+                // });
+            })
+            .catch(error => {
+                console.error(error);
+                alert(error.message);
+            });
+    }
+    
+}
